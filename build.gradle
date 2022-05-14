@@ -1,3 +1,5 @@
+import com.github.whyrising.kmplibtemplate.Ci
+
 plugins {
   alias(deps.plugins.kotlin.multiplatform) apply false
   alias(deps.plugins.spotless)
@@ -39,9 +41,8 @@ tasks.koverCollectReports {
 }
 
 allprojects {
-  // todo: change group
-  group = "com.github.whyrising.kmplibtemplate"
-  version = "0.0.1"
+  group = Ci.group
+  version = Ci.publishVersion
 
   tasks.withType(JavaCompile) {
     sourceCompatibility = JavaVersion.VERSION_11
