@@ -1,2 +1,1 @@
-class NothingTest {
-}
+class NothingTest
