@@ -6,7 +6,8 @@ plugins {
 gradlePlugin {
   plugins {
     multiplatform {
-      id = "com.github.whyrising.multiplatform"
+      // todo: change pkg name
+      id = "com.github.whyrising.kmplibtemplate.multiplatform"
       implementationClass = "com.github.whyrising.kmplibtemplate.multiplatform.Conventions"
     }
   }
