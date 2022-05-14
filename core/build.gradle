@@ -1,0 +1,36 @@
+plugins {
+  alias(deps.plugins.kotlin.multiplatform)
+  // todo: change id pkg name
+  id("com.github.whyrising.kmplibtemplate.multiplatform")
+}
+
+kotlin {
+  sourceSets {
+    commonMain {
+      dependencies {
+      }
+    }
+    commonTest {
+      dependencies {
+      }
+    }
+    jvmTest {
+      dependencies {
+      }
+    }
+    nativeMain {
+      dependencies {
+      }
+    }
+    nativeTest {
+      dependencies {
+      }
+    }
+
+    all {
+      languageSettings.optIn("kotlin.time.ExperimentalTime")
+      languageSettings.optIn("kotlin.experimental.ExperimentalTypeInference")
+      languageSettings.optIn("kotlin.RequiresOptIn")
+    }
+  }
+}
