@@ -1,0 +1,35 @@
+plugins {
+  alias(deps.plugins.kotlin.multiplatform)
+  id("com.github.whyrising.multiplatform")
+}
+
+kotlin {
+  sourceSets {
+    commonMain {
+      dependencies {
+      }
+    }
+    commonTest {
+      dependencies {
+      }
+    }
+    jvmTest {
+      dependencies {
+      }
+    }
+    nativeMain {
+      dependencies {
+      }
+    }
+    nativeTest {
+      dependencies {
+      }
+    }
+
+    all {
+      languageSettings.optIn("kotlin.time.ExperimentalTime")
+      languageSettings.optIn("kotlin.experimental.ExperimentalTypeInference")
+      languageSettings.optIn("kotlin.RequiresOptIn")
+    }
+  }
+}

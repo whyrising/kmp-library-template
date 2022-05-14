@@ -1,0 +1,40 @@
+plugins {
+  alias(deps.plugins.kotlin.multiplatform) apply false
+  alias(deps.plugins.spotless)
+}
+
+spotless {
+  groovyGradle {
+    target "**/*.gradle"
+    trimTrailingWhitespace()
+    endWithNewline()
+    greclipse().configFile('./greclipse.properties')
+  }
+  kotlin {
+    target "**/*.kt"
+    ktlint(deps.versions.ktlint.get()).userData([
+      "indent_size"    : "2",
+      "max_line_length": "80"
+    ])
+    trimTrailingWhitespace()
+    endWithNewline()
+  }
+}
+
+allprojects {
+  // todo: change group
+  group = "com.github.whyrising.kmplibtemplate"
+  version = "0.0.1"
+
+  tasks.withType(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+
+  tasks.withType(Test).configureEach {
+    testLogging {
+      events = ["failed", "skipped", "passed"]
+      exceptionFormat "full"
+    }
+  }
+}
